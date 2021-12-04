@@ -55,6 +55,11 @@ class PackageInfo extends Component {
 		this.setState({ showModal: !this.state.showModal });
 	}
 
+	handleDeliverButton(item) {
+		item.location = "Delivered";
+		this.setState({ state: this.state });
+	}
+
 	static navigationOptions = {
 		title: "Details",
 	};
@@ -76,7 +81,11 @@ class PackageInfo extends Component {
 				onPress: () => console.log("Cancel Pressed"),
 				style: "cancel",
 			},
-			{ text: "OK", onPress: () => item.location = "Delivered" },
+			{
+				text: "OK",
+				onPress: () => this.handleDeliverButton(item),
+			},
+			// { text: "OK", onPress: () => item.location = "Delivered" },
 		]);
 		//Perform validation
 

@@ -6,7 +6,7 @@ import { ConfigureStore } from './redux/configureStore';
 import { PersistGate } from 'redux-persist/es/integration/react';
 
 import Main from './components/MainComponent';
-import Loading from './components/ui-blocks/LoadingComponent';
+import Loading from './components/ui-blocks/LoadingComponent'; // Different with Nucamp
 
 console.disableYellowBox = true;
 

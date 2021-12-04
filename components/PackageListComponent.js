@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FlatList, StyleSheet, SafeAreaView, Alert, View, Text } from "react-native";
 import { Avatar, ListItem, Badge, CheckBox } from "react-native-elements";
+import { useFocusEffect } from "@react-navigation/native";
 import TouchableScale from "react-native-touchable-scale";
 import LinearGradient from "react-native-linear-gradient";
 import Header from "./ui-blocks/HeaderComponent";
@@ -37,9 +38,22 @@ class PackageList extends Component {
 		title: "Packages",
 	};
 
+  // ProfileScreen({ navigation }) {
+  //   React.useEffect(() => {
+  //     const unsubscribe = navigation.addListener('focus', () => {
+  //       // The screen is focused
+  //       // Call any action
+  //       this.setState({ state: this.state });
+  //     });
+  
+  //     // Return the function to unsubscribe from the event so it gets removed on unmount
+  //     return unsubscribe;
+  //   }, [navigation]);}
+
 	render() {
 		//console.log(JSON.stringify(this.props.packages.packages));
 		const { navigate } = this.props.navigation;
+
 
 		const renderPackageListItem = ({ item }) => {
 			if (item.location === "Dispatched") {
@@ -73,10 +87,8 @@ class PackageList extends Component {
 						</ListItem.Content>
 					</ListItem>
 				);
-			} 
-      
-      else if(item.location === "Delivered"){
-        return (
+			} else if (item.location === "Delivered") {
+				return (
 					<ListItem
 						onPress={() => navigate("PackageInfo", { packageId: item.id })}
 						//onPress={() => console.log(item.id)}
@@ -106,9 +118,7 @@ class PackageList extends Component {
 						</ListItem.Content>
 					</ListItem>
 				);
-      }
-
-      else {
+			} else {
 				return (
 					<ListItem
 						onPress={() => navigate("PackageInfo", { packageId: item.id })}

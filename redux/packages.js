@@ -22,8 +22,9 @@ export const packages = (
 		case ActionTypes.RECEIVE_PACKAGE:
 			console.log("You made it to the receive package reducer");
 			// return state;
-			return { location: action.payload, ...state };
-		// return { ...state, isLoading:true, location: action.payload };
+			// return { location: action.payload, ...state };
+			// return { ...state, isLoading:true, location: action.payload };
+			return { ...state, location: action.payload };
 
 		case ActionTypes.REQUEST_DISPATCH:
 			console.log("You made it to the request dispatch reducer");

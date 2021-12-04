@@ -17,8 +17,8 @@ export const ConfigureStore = () => {
         persistCombineReducers(config,{
             packages
         }),
-        // applyMiddleware(thunk, logger)
-        applyMiddleware(thunk)
+        applyMiddleware(thunk, logger)
+        // applyMiddleware(thunk)
     );
 
     const persistor = persistStore(store);
